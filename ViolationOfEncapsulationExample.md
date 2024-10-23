@@ -7,32 +7,32 @@
 **Refactored Solution Type:** Refactoring Technique
 
 ## Explanation
-
 Encapsulation is a fundamental principle of object-oriented programming that helps protect the internal state of an object by providing controlled access through methods. Violating encapsulation usually involves making class fields public or providing direct access to internal data, which increases the risk of unintended modifications and makes it harder to maintain consistency.
 
 ## Real-World Example of Violation of Encapsulation
-
 In early versions of some Java libraries, classes would expose their fields directly to allow easier access. However, this led to unintended changes, causing difficult-to-find bugs and making it challenging to update the internal implementation.
 
 ## Examples
-
 ### 1. Public Fields
 
 In some applications, class fields are made public to allow easy access. This violates encapsulation, as there is no control over how these fields are modified.
 
 **Example:**
 
-Consider a User class with public fields.
-```
+Consider a `User` class with public fields.
+
+```java
 public class User {
     public String name;
     public int age;
 }
 ```
-Problem: The fields name and age are directly accessible, allowing uncontrolled modification.
 
-Solution: Make fields private and provide getters and setters with validation if needed.
-```
+**Problem**: The fields `name` and `age` are directly accessible, allowing uncontrolled modification.
+
+**Solution**: Make fields private and provide getters and setters with validation if needed.
+
+```java
 public class User {
     private String name;
     private int age;
@@ -56,7 +56,8 @@ public class User {
     }
 }
 ```
-Benefit: This enforces data integrity and allows validation logic to be added easily.
+
+**Benefit**: This enforces **data integrity** and allows validation logic to be added easily.
 
 ### 2. Providing Direct Access to Collections
 
@@ -64,16 +65,19 @@ Providing direct access to collections in a class exposes the internal data and 
 
 **Example:**
 
-Consider a Team class with a public list of members.
-```
+Consider a `Team` class with a public list of members.
+
+```java
 public class Team {
     public List<String> members;
 }
 ```
-Problem: The members list is directly accessible, allowing uncontrolled modifications.
 
-Solution: Use encapsulation to provide controlled access to the list.
-```
+**Problem**: The `members` list is directly accessible, allowing uncontrolled modifications.
+
+**Solution**: Use encapsulation to provide controlled access to the list.
+
+```java
 public class Team {
     private List<String> members = new ArrayList<>();
 
@@ -86,7 +90,8 @@ public class Team {
     }
 }
 ```
-Benefit: This prevents external classes from modifying the list directly, maintaining better control over the object's state.
+
+**Benefit**: This prevents external classes from modifying the list directly, maintaining better control over the object's state.
 
 ### 3. Public Array Fields
 
@@ -94,16 +99,19 @@ Arrays are mutable, and providing direct access to them can lead to unintended m
 
 **Example:**
 
-Consider a Data class with a public array field.
-```
+Consider a `Data` class with a public array field.
+
+```java
 public class Data {
     public int[] values;
 }
 ```
-Problem: The array values is public, allowing direct modification.
 
-Solution: Make the array private and provide controlled access.
-```
+**Problem**: The array `values` is public, allowing direct modification.
+
+**Solution**: Make the array private and provide controlled access.
+
+```java
 public class Data {
     private int[] values;
 
@@ -116,7 +124,8 @@ public class Data {
     }
 }
 ```
-Benefit: Prevents unintended modifications and ensures encapsulation.
+
+**Benefit**: Prevents unintended modifications and ensures encapsulation.
 
 ### 4. Direct Access to Object References
 
@@ -124,16 +133,19 @@ Providing direct access to object references can lead to unintended side effects
 
 **Example:**
 
-Consider a Library class with a public reference to a Book object.
-```
+Consider a `Library` class with a public reference to a `Book` object.
+
+```java
 public class Library {
     public Book book;
 }
 ```
-Problem: The book reference is public, allowing external classes to modify it directly.
 
-Solution: Make the reference private and provide controlled access.
-```
+**Problem**: The `book` reference is public, allowing external classes to modify it directly.
+
+**Solution**: Make the reference private and provide controlled access.
+
+```java
 public class Library {
     private Book book;
 
@@ -146,7 +158,8 @@ public class Library {
     }
 }
 ```
-Benefit: Provides controlled access and preserves object integrity.
+
+**Benefit**: Provides controlled access and preserves object integrity.
 
 ### 5. Inadequate Access Control for Sensitive Data
 
@@ -154,16 +167,19 @@ Sensitive data should not be exposed directly, as it can lead to security vulner
 
 **Example:**
 
-Consider an Account class with a public balance field.
-```
+Consider an `Account` class with a public balance field.
+
+```java
 public class Account {
     public double balance;
 }
 ```
-Problem: The balance field is public, which is inappropriate for sensitive data.
 
-Solution: Use proper encapsulation with validation.
-```
+**Problem**: The `balance` field is public, which is inappropriate for sensitive data.
+
+**Solution**: Use proper encapsulation with validation.
+
+```java
 public class Account {
     private double balance;
 
@@ -184,5 +200,5 @@ public class Account {
     }
 }
 ```
-Benefit: Sensitive data is protected, and access is controlled.
 
+**Benefit**: Sensitive data is protected, and access is controlled.
