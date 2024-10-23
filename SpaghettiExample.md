@@ -46,6 +46,52 @@ All logic—user interface, business logic, and data handling—are mixed in a s
 
 Problem: Multiple responsibilities are mixed into a single method. This method not only processes orders, but also handles input validation, data updates, and notifications, violating the Single Responsibility Principle.
 
+Solution: Introduce multiple classes with distinct responsibilities to adhere to the Single Responsibility Principle. Each aspect of the order processing is handled by a different class.
+
+```public class OrderValidator {
+    public void validateOrder(Order order) {
+        System.out.println("Validating order...");
+        // Validation logic here
+    }
+}
+
+public class OrderProcessor {
+    public void processOrder(Order order) {
+        System.out.println("Processing order...");
+        // Order processing logic here
+    }
+}
+
+public class OrderRepository {
+    public void updateOrderInDatabase(Order order) {
+        System.out.println("Updating database...");
+        // Database update logic here
+    }
+}
+
+public class NotificationService {
+    public void sendConfirmation(Order order) {
+        System.out.println("Sending confirmation email...");
+        // Notification logic here
+    }
+}
+
+// Refactored main workflow
+public class OrderService {
+    private OrderValidator validator = new OrderValidator();
+    private OrderProcessor processor = new OrderProcessor();
+    private OrderRepository repository = new OrderRepository();
+    private NotificationService notificationService = new NotificationService();
+
+    public void processOrder(Order order) {
+        validator.validateOrder(order);
+        processor.processOrder(order);
+        repository.updateOrderInDatabase(order);
+        notificationService.sendConfirmation(order);
+    }
+}
+```
+
 ### 2. Excessive Use of Conditional Statements
 
 Deeply nested if-else and switch statements scattered throughout the codebase, making it difficult to follow the control flow.
@@ -68,6 +114,47 @@ Deeply nested if-else and switch statements scattered throughout the codebase, m
 ```
 
 Problem: Adding new payment methods would require modifying this method, violating the Open-Closed Principle. It’s better to use polymorphism with different payment classes.
+
+Solution: Use an interface (Payment) and different implementations for each payment type. The PaymentProcessor class no longer needs to handle multiple conditional branches; it simply relies on polymorphism.
+
+```public interface Payment {
+    void process();
+}
+
+public class CreditCardPayment implements Payment {
+    @Override
+    public void process() {
+        System.out.println("Processing credit card payment...");
+    }
+}
+
+public class DebitCardPayment implements Payment {
+    @Override
+    public void process() {
+        System.out.println("Processing debit card payment...");
+    }
+}
+
+public class PayPalPayment implements Payment {
+    @Override
+    public void process() {
+        System.out.println("Processing PayPal payment...");
+    }
+}
+
+public class BitcoinPayment implements Payment {
+    @Override
+    public void process() {
+        System.out.println("Processing Bitcoin payment...");
+    }
+}
+
+public class PaymentProcessor {
+    public void processPayment(Payment payment) {
+        payment.process();
+    }
+}
+```
 
 ### 3. Poor Class Design and Low Cohesion
 
@@ -94,6 +181,33 @@ One class does too many things, leading to low cohesion, making it challenging t
 
 Problem: UserManager is handling unrelated tasks like user operations, notifications, and backups, which results in low cohesion.
 
+Solution: Decompose the calculation into smaller methods with specific responsibilities. Avoid using a global variable (result), and instead use local variables to keep the state scoped and manageable.
+
+```public class Calculator {
+    public int calculateSum(int limit) {
+        int sum = 0;
+        for (int i = 0; i < limit; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    public int calculateProduct(int limit) {
+        int product = 1;
+        for (int j = 1; j < limit; j++) {
+            product *= j;
+        }
+        return product;
+    }
+
+    public int calculate() {
+        int sum = calculateSum(10);
+        int product = calculateProduct(5);
+        return sum * product;
+    }
+}
+```
+
 ### 4. Long Methods and Overuse of Global Variables
 
 A method becomes extremely long with multiple nested loops, and the use of global variables makes tracking the flow of data very difficult.
@@ -117,6 +231,32 @@ A method becomes extremely long with multiple nested loops, and the use of globa
 ```
 
 Problem: The method does too many things and uses a global variable (result), making it hard to determine which parts of the code are responsible for changes, leading to unpredictable side effects.
+
+Solution: Introduce an interface (Helper) to break the direct dependency between ClassA and ClassB. Now, ClassA depends on an abstraction (Helper) rather than ClassB, and ClassB implements Helper.
+
+```public interface Helper {
+    void help();
+}
+
+public class ClassA {
+    private Helper helper;
+
+    public ClassA(Helper helper) {
+        this.helper = helper;
+    }
+
+    public void doSomething() {
+        helper.help();
+    }
+}
+
+public class ClassB implements Helper {
+    @Override
+    public void help() {
+        System.out.println("Helping ClassA...");
+    }
+}
+```
 
 ### 5. Circular Dependencies
 
