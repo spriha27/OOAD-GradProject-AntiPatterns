@@ -20,7 +20,7 @@ In the early versions of some frameworks, developers tried to model all possible
 
 In larger codebases, deep inheritance trees are common, where classes extend each other multiple levels deep. This leads to tight coupling, making it difficult to change the base classes without affecting all subclasses.
 
-Example:
+**Example:**
 
 Consider a vehicle system where different types of vehicles are created through inheritance
 ```
@@ -84,7 +84,7 @@ Benefit: This improves maintainability by decoupling features and avoiding unnec
 
 In some systems, developers use inheritance to share behavior between different classes, even when those classes don't perfectly fit into the hierarchy.
 
-Example:
+**Example:**
 
 Consider an animal hierarchy where birds are modeled to inherit from Animal, but not all birds can fly.
 ```
@@ -140,7 +140,7 @@ Benefit: This avoids forcing subclasses to inherit behavior that they cannot sup
 
 When attempting to reuse code, developers sometimes try to inherit from multiple classes, which leads to complex and fragile designs.
 
-Example:
+**Example:**
 
 Consider a multifunction device that tries to inherit from both Printer and Scanner classes.
 ```
@@ -189,7 +189,7 @@ Benefit: Composition provides flexibility and avoids the complications of multip
 
 Inheritance is sometimes misused to gain access to utility methods, which leads to inappropriate class hierarchies.
 
-Example:
+**Example:**
 
 Consider a utility class that provides logging functionality.
 ```
@@ -220,7 +220,7 @@ Benefit: Avoids unnecessary inheritance and maintains a clear separation of conc
 
 In large systems, role specialization is often represented with deep inheritance hierarchies, making it difficult to manage.
 
-Example:
+**Example:**
 
 Consider an employee hierarchy where different roles are modeled through inheritance.
 ```
