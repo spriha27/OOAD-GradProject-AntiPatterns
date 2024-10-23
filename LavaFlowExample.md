@@ -1,5 +1,5 @@
 
-# LavaCode
+# LavaFlow
 
 **AntiPattern Name:** Lava Flow\
 **Also Known As:** Dead Code\
@@ -41,7 +41,17 @@ Consider a system that originally used different payment methods but later shift
 }
 ```
 
-In this example, the PaymentHandler class contains methods that are not used anymore, but they were left in place because the developer wasn’t confident enough to remove them.
+Problem: In this example, the PaymentHandler class contains methods that are not used anymore, but they were left in place because the developer wasn’t confident enough to remove them.
+
+Solution: Remove obsolete methods after verifying their usage. Use a single method to handle different payment types, promoting better maintainability. Polymorphism is applied here through the Payment class, which has different implementations for each payment type.
+
+```public class PaymentHandler {
+    public void handlePayment(Payment payment) {
+        // Unified payment handling logic
+        payment.process();
+    }
+}
+```
 
 ### 2. Commented-Out Code
 
@@ -64,6 +74,15 @@ Example:
 
 Problem: The old implementation, instead of being deleted, is commented out and remains in the codebase, adding unnecessary clutter and confusion. New developers might spend time trying to understand if they need to uncomment it.
 
+Solution: Remove commented-out code. The new implementation is cleaner, and any historical reference can be retrieved from the version control system like Git.
+
+```public class UserAccount {
+    public void updateAccount(String accountId) {
+        updateAccountInServiceLayer(accountId);
+    }
+}
+```
+
 ### 3. Old Conditional Branches
 
 Code with old conditional branches or checks that are no longer relevant, but developers were not sure whether they might still be used, leads to Lava Flow.
@@ -84,6 +103,17 @@ Example:
 
 Problem: The conditional for RequestType.TYPE_OBSOLETE is no longer needed, but it remains in the code. It increases complexity and makes the flow harder to follow.
 
+Solution: Remove the unused conditional branch to simplify the control flow. This reduces complexity and prevents developers from getting confused.
+
+```public void processRequest(Request request) {
+    if (request.getType() == RequestType.TYPE_A) {
+        // Handling TYPE_A
+    } else if (request.getType() == RequestType.TYPE_B) {
+        // Handling TYPE_B
+    }
+}
+```
+
 ### 4. Legacy Classes Retained with No Purpose
 
 When a system changes its structure, old classes can sometimes be left behind because no one is sure if they’re still needed. These legacy classes often don’t fit into the new architecture.
@@ -97,3 +127,5 @@ Example:
 ```
 
 Problem: LegacyProcessor is retained even after a new system or module (NewProcessor) has taken over its functionality.
+
+Solution: Delete the entire class if it has been replaced by new architecture and is no longer used. Keep the system lean and free of unnecessary classes.
