@@ -1,33 +1,30 @@
 # Spaghetti Code
 
-**AntiPattern Name:** Spaghetti Code
-
-**Also Known As:** Tangled Code, Messy Code
-
-**Most Frequent Scale:** Method or Class Level (can also extend to System Level in larger codebases)
-
-**Refactored Solution Name:** Modularization
-
+**AntiPattern Name:** Spaghetti Code\
+**Also Known As:** Tangled Code, Messy Code\
+**Most Frequent Scale:** Method or Class Level (can also extend to System Level in larger codebases)\
+**Refactored Solution Name:** Modularization\
 **Refactored Solution Type:** Refactoring with Proper Separation of Concerns (SoC), Increased Cohesion, and Decreased Coupling through techniques like Decomposition, Encapsulation, and Object-Oriented Design Principles
 
 ## Explanation
-
 Spaghetti code refers to unstructured and hard-to-maintain code, typically resulting from poor design decisions, lack of proper architecture, and insufficient use of OOAD principles.
 
-## Real-World example of Spaghetti Code
+## Real-World Example of Spaghetti Code
 
 ### NASA’s Space Shuttle Software
 
-* The software used for the Space Shuttle was initially plagued by spaghetti code problems due to the complexity of its requirements. NASA had to put in a massive effort to rewrite and thoroughly test the code to ensure it was reliable enough for space missions.
-* During early development, the tight coupling and lack of a modular structure made it difficult to adapt the software to changes or new requirements. Eventually, NASA moved to extremely rigorous coding standards, including breaking down complex modules, which led to the legendary reliability of the final system.
+- The software used for the Space Shuttle was initially plagued by spaghetti code problems due to the complexity of its requirements. NASA had to put in a massive effort to rewrite and thoroughly test the code to ensure it was reliable enough for space missions.
+- During early development, the tight coupling and lack of a modular structure made it difficult to adapt the software to changes or new requirements. Eventually, NASA moved to extremely rigorous coding standards, including breaking down complex modules, which led to the legendary reliability of the final system.
 
 ## Examples
-
 ### 1. Lack of Separation of Concerns
 
 All logic—user interface, business logic, and data handling—are mixed in a single class, making it hard to maintain or modify parts independently.
 
-```public class OrderProcessing {
+**Example:**
+
+```java
+public class OrderProcessing {
     public void processOrder() {
         // Input validation
         System.out.println("Validating order...");
@@ -44,11 +41,14 @@ All logic—user interface, business logic, and data handling—are mixed in a s
 }
 ```
 
-Problem: Multiple responsibilities are mixed into a single method. This method not only processes orders, but also handles input validation, data updates, and notifications, violating the Single Responsibility Principle.
+**Problem**: Multiple responsibilities are mixed into a single method. This method not only processes orders, but also handles input validation, data updates, and notifications, violating the Single Responsibility Principle.
 
-Solution: Introduce multiple classes with distinct responsibilities to adhere to the Single Responsibility Principle. Each aspect of the order processing is handled by a different class.
+**Solution**: Introduce multiple classes with distinct responsibilities to adhere to the Single Responsibility Principle. Each aspect of the order processing is handled by a different class.
 
-```public class OrderValidator {
+**Solution Code:**
+
+```java
+public class OrderValidator {
     public void validateOrder(Order order) {
         System.out.println("Validating order...");
         // Validation logic here
@@ -92,11 +92,16 @@ public class OrderService {
 }
 ```
 
+**Benefit**: This refactoring improves maintainability, as each class is now responsible for a specific task, making the code easier to modify, test, and extend.
+
 ### 2. Excessive Use of Conditional Statements
 
 Deeply nested if-else and switch statements scattered throughout the codebase, making it difficult to follow the control flow.
 
-```public class PaymentProcessor {
+**Example:**
+
+```java
+public class PaymentProcessor {
     public void processPayment(String paymentType) {
         if (paymentType.equals("credit_card")) {
             // Process credit card payment
@@ -113,11 +118,14 @@ Deeply nested if-else and switch statements scattered throughout the codebase, m
 }
 ```
 
-Problem: Adding new payment methods would require modifying this method, violating the Open-Closed Principle. It’s better to use polymorphism with different payment classes.
+**Problem**: Adding new payment methods would require modifying this method, violating the Open-Closed Principle. It’s better to use polymorphism with different payment classes.
 
-Solution: Use an interface (Payment) and different implementations for each payment type. The PaymentProcessor class no longer needs to handle multiple conditional branches; it simply relies on polymorphism.
+**Solution**: Use an interface (Payment) and different implementations for each payment type. The PaymentProcessor class no longer needs to handle multiple conditional branches; it simply relies on polymorphism.
 
-```public interface Payment {
+**Solution Code:**
+
+```java
+public interface Payment {
     void process();
 }
 
@@ -156,11 +164,16 @@ public class PaymentProcessor {
 }
 ```
 
+**Benefit**: This refactoring allows for easier addition of new payment methods without modifying existing code, adhering to the Open-Closed Principle, and making the system more flexible and maintainable.
+
 ### 3. Poor Class Design and Low Cohesion
 
 One class does too many things, leading to low cohesion, making it challenging to understand what the class is actually responsible for.
 
-```public class UserManager {
+**Example:**
+
+```java
+public class UserManager {
     public void createUser() {
         // Logic to create a user
     }
@@ -179,11 +192,75 @@ One class does too many things, leading to low cohesion, making it challenging t
 }
 ```
 
-Problem: UserManager is handling unrelated tasks like user operations, notifications, and backups, which results in low cohesion.
+**Problem**: `UserManager` is handling unrelated tasks like user operations, notifications, and backups, which results in low cohesion.
 
-Solution: Decompose the calculation into smaller methods with specific responsibilities. Avoid using a global variable (result), and instead use local variables to keep the state scoped and manageable.
+**Solution**: Decompose the class into smaller classes with specific responsibilities.
 
-```public class Calculator {
+**Solution Code:**
+
+```java
+public class UserService {
+    public void createUser() {
+        System.out.println("Creating user...");
+        // User creation logic here
+    }
+
+    public void deleteUser() {
+        System.out.println("Deleting user...");
+        // User deletion logic here
+    }
+}
+
+public class NotificationService {
+    public void sendNotification(String message) {
+        System.out.println("Sending notification: " + message);
+        // Notification logic here
+    }
+}
+
+public class BackupService {
+    public void backupDatabase() {
+        System.out.println("Backing up database...");
+        // Backup logic here
+    }
+}
+```
+
+**Benefit**: By splitting the `UserManager` class into smaller classes, each with a specific responsibility, the system becomes more cohesive, easier to understand, and simpler to maintain or extend.
+
+### 4. Long Methods and Overuse of Global Variables
+
+A method becomes extremely long with multiple nested loops, and the use of global variables makes tracking the flow of data very difficult.
+
+**Example:**
+
+```java
+public class Calculator {
+    public static int result = 0;
+
+    public void calculate() {
+        for (int i = 0; i < 10; i++) {
+            // Some calculation
+            result += i;
+            for (int j = 0; j < 5; j++) {
+                result *= j;
+            }
+        }
+
+        // Continue with more complex calculations
+        // No clear separation of tasks
+    }
+}
+```
+
+**Problem**: The method does too many things and uses a global variable (`result`), making it hard to determine which parts of the code are responsible for changes, leading to unpredictable side effects.
+
+**Solution**: Break the calculation into smaller methods with specific responsibilities. Avoid using a global variable (`result`), and instead use local variables to keep the state scoped and manageable.
+
+**Solution Code:**
+
+```java
+public class Calculator {
     public int calculateSum(int limit) {
         int sum = 0;
         for (int i = 0; i < limit; i++) {
@@ -208,61 +285,15 @@ Solution: Decompose the calculation into smaller methods with specific responsib
 }
 ```
 
-### 4. Long Methods and Overuse of Global Variables
-
-A method becomes extremely long with multiple nested loops, and the use of global variables makes tracking the flow of data very difficult.
-
-``` public class Calculator {
-    public static int result = 0;
-
-    public void calculate() {
-        for (int i = 0; i < 10; i++) {
-            // Some calculation
-            result += i;
-            for (int j = 0; j < 5; j++) {
-                result *= j;
-            }
-        }
-
-        // Continue with more complex calculations
-        // No clear separation of tasks
-    }
-}
-```
-
-Problem: The method does too many things and uses a global variable (result), making it hard to determine which parts of the code are responsible for changes, leading to unpredictable side effects.
-
-Solution: Introduce an interface (Helper) to break the direct dependency between ClassA and ClassB. Now, ClassA depends on an abstraction (Helper) rather than ClassB, and ClassB implements Helper.
-
-```public interface Helper {
-    void help();
-}
-
-public class ClassA {
-    private Helper helper;
-
-    public ClassA(Helper helper) {
-        this.helper = helper;
-    }
-
-    public void doSomething() {
-        helper.help();
-    }
-}
-
-public class ClassB implements Helper {
-    @Override
-    public void help() {
-        System.out.println("Helping ClassA...");
-    }
-}
-```
+**Benefit**: This refactoring separates the logic into distinct methods, making the code easier to understand, maintain, and debug. Using local variables reduces the risk of side effects, leading to more predictable behavior.
 
 ### 5. Circular Dependencies
 
 Classes depending on each other excessively, creating tangled and hard-to-follow relationships.
 
-```
+**Example:**
+
+```java
 public class ClassA {
     private ClassB b;
 
@@ -288,13 +319,47 @@ public class ClassB {
 }
 ```
 
-Problem: ClassA and ClassB are tightly coupled and depend on each other, creating a circular dependency, making it difficult to modify or reuse these classes independently.
+**Problem**: `ClassA` and `ClassB` are tightly coupled and depend on each other, creating a circular dependency, making it difficult to modify or reuse these classes independently.
+
+**Solution**: Introduce an interface (`Helper`) to break the direct dependency between `ClassA` and `ClassB`. Now, `ClassA` depends on an abstraction (`Helper`) rather than `ClassB`, and `ClassB` implements `Helper`.
+
+**Solution Code:**
+
+```java
+public interface Helper {
+    void help();
+}
+
+public class ClassA {
+    private Helper helper;
+
+    public ClassA(Helper helper) {
+        this.helper = helper;
+    }
+
+    public void doSomething() {
+        helper.help();
+    }
+}
+
+public class ClassB implements Helper {
+    @Override
+    public void help() {
+        System.out.println("Helping ClassA...");
+    }
+}
+```
+
+**Benefit**: This refactoring reduces coupling between `ClassA` and `ClassB` by introducing an abstraction, making both classes easier to modify and reuse independently.
 
 ### 6. Hardcoded Values and Deep Nesting
 
 Using hardcoded values and having deeply nested control statements that are difficult to read and understand.
 
-```public class DiscountCalculator {
+**Example:**
+
+```java
+public class DiscountCalculator {
     public double calculateDiscount(String customerType, int purchaseAmount) {
         if (customerType.equals("regular")) {
             if (purchaseAmount > 100) {
@@ -315,4 +380,52 @@ Using hardcoded values and having deeply nested control statements that are diff
 }
 ```
 
-Problem: Deep nesting and hardcoded values make the logic confusing and difficult to maintain. Adding new customer types requires modifying the same code, making it prone to errors.
+**Problem**: Deep nesting and hardcoded values make the logic confusing and difficult to maintain. Adding new customer types requires modifying the same code, making it prone to errors.
+
+**Solution**: Use an enumeration for customer types and a strategy pattern for discount calculation.
+
+**Solution Code:**
+
+```java
+public enum CustomerType {
+    REGULAR, VIP
+}
+
+public interface DiscountStrategy {
+    double calculateDiscount(int purchaseAmount);
+}
+
+public class RegularCustomerDiscount implements DiscountStrategy {
+    @Override
+    public double calculateDiscount(int purchaseAmount) {
+        return purchaseAmount > 100 ? 10 : 5;
+    }
+}
+
+public class VIPCustomerDiscount implements DiscountStrategy {
+    @Override
+    public double calculateDiscount(int purchaseAmount) {
+        return purchaseAmount > 500 ? 20 : 15;
+    }
+}
+
+public class DiscountCalculator {
+    public double calculateDiscount(CustomerType customerType, int purchaseAmount) {
+        DiscountStrategy strategy;
+        switch (customerType) {
+            case REGULAR:
+                strategy = new RegularCustomerDiscount();
+                break;
+            case VIP:
+                strategy = new VIPCustomerDiscount();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown customer type");
+        }
+        return strategy.calculateDiscount(purchaseAmount);
+    }
+}
+```
+
+**Benefit**: This refactoring improves readability, makes adding new customer types easier, and reduces deep nesting, leading to a cleaner and more maintainable codebase.
+
