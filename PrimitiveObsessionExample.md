@@ -193,4 +193,161 @@ public class Contact {
 }
 ```
 
-**Benefit**: The `PhoneNumber` class centralizes validation logic, making the code more maintainable and ensuring consistent handling of
+**Benefit**: The `PhoneNumber` class centralizes validation logic, making the code more maintainable and ensuring consistent handling of phone numbers across the system.
+
+### 4. Using Strings for Address Components
+
+Addresses often consist of multiple fields, such as street, city, and postal code, represented as separate `String` values.
+
+**Example:**
+
+```java
+public class Address {
+    private String street;
+    private String city;
+    private String postalCode;
+
+    public Address(String street, String city, String postalCode) {
+        this.street = street;
+        this.city = city;
+        this.postalCode = postalCode;
+    }
+
+    // Getters and setters omitted for brevity
+}
+```
+
+**Problem**: The different components of an address are represented using primitive types, leading to the lack of proper validation and encapsulation of address-related logic.
+
+**Solution**: Create specialized classes for each component, such as `Street`, `City`, and `PostalCode`, to encapsulate behavior and validation logic.
+
+**Solution Code:**
+
+```java
+public class Street {
+    private String name;
+
+    public Street(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Street name cannot be empty");
+        }
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class City {
+    private String name;
+
+    public City(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("City name cannot be empty");
+        }
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+public class PostalCode {
+    private String code;
+
+    public PostalCode(String code) {
+        if (!code.matches("\d{5}")) {
+            throw new IllegalArgumentException("Invalid postal code");
+        }
+        this.code = code;
+    }
+
+    public String getCode() {
+        return code;
+    }
+}
+
+public class Address {
+    private Street street;
+    private City city;
+    private PostalCode postalCode;
+
+    public Address(Street street, City city, PostalCode postalCode) {
+        this.street = street;
+        this.city = city;
+        this.postalCode = postalCode;
+    }
+
+    public Street getStreet() { return street; }
+    public City getCity() { return city; }
+    public PostalCode getPostalCode() { return postalCode; }
+}
+```
+
+**Benefit**: Each component of the address now has specific validation, making the `Address` class more robust and the overall system easier to maintain.
+
+### 5. Using Strings for Customer IDs
+
+Using `String` to represent a `CustomerID` can lead to inconsistencies and a lack of encapsulation.
+
+**Example:**
+
+```java
+public class Customer {
+    private String customerId;
+
+    public Customer(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+}
+```
+
+**Problem**: `CustomerID` is represented as a simple `String`, without any validation or behavior that relates to a unique identifier.
+
+**Solution**: Create a `CustomerID` class to encapsulate the uniqueness and validity of the ID.
+
+**Solution Code:**
+
+```java
+import java.util.UUID;
+
+public class CustomerID {
+    private String value;
+
+    public CustomerID(String value) {
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException("Customer ID cannot be empty");
+        }
+        this.value = value;
+    }
+
+    public static CustomerID generate() {
+        return new CustomerID(UUID.randomUUID().toString());
+    }
+
+    public String getValue() {
+        return value;
+    }
+}
+
+public class Customer {
+    private CustomerID customerId;
+
+    public Customer(CustomerID customerId) {
+        this.customerId = customerId;
+    }
+
+    public CustomerID getCustomerId() {
+        return customerId;
+    }
+}
+```
+
+**Benefit**: By encapsulating the `CustomerID` into its own class, you add behavior related to customer identification, such as validation or ID generation, improving the domain model's expressiveness and reducing redundancy.
+
