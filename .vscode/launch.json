@@ -1,0 +1,168 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "CounterExample",
+            "request": "launch",
+            "mainClass": "java.code.cargocultprogramming.CounterExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "DatabaseConnectionExample",
+            "request": "launch",
+            "mainClass": "java.code.cargocultprogramming.DatabaseConnectionExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "NetworkConfigExample",
+            "request": "launch",
+            "mainClass": "java.code.cargocultprogramming.NetworkConfigExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "OrderServiceExample",
+            "request": "launch",
+            "mainClass": "java.code.cargocultprogramming.OrderServiceExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "TryCatchExample",
+            "request": "launch",
+            "mainClass": "java.code.cargocultprogramming.TryCatchExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Customer",
+            "request": "launch",
+            "mainClass": "java.code.dataclass.Customer",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Employee",
+            "request": "launch",
+            "mainClass": "java.code.dataclass.Employee",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Invoice",
+            "request": "launch",
+            "mainClass": "java.code.dataclass.Invoice",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Product",
+            "request": "launch",
+            "mainClass": "java.code.dataclass.Product",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Transaction",
+            "request": "launch",
+            "mainClass": "java.code.dataclass.Transaction",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "BirdExample",
+            "request": "launch",
+            "mainClass": "java.code.excessiveinheritance.BirdExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "ElectricCar",
+            "request": "launch",
+            "mainClass": "java.code.excessiveinheritance.ElectricCar",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "EmployeeExample",
+            "request": "launch",
+            "mainClass": "java.code.excessiveinheritance.EmployeeExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "MultiFunctionDevice",
+            "request": "launch",
+            "mainClass": "java.code.excessiveinheritance.MultiFunctionDevice",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "UtilityExample",
+            "request": "launch",
+            "mainClass": "java.code.excessiveinheritance.UtilityExample",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "DataManagerMain",
+            "request": "launch",
+            "mainClass": "java.code.godobject.datamanager.DataManagerMain",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "java.code.godobject.ordermanager.Main",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "ShoppingCartMain",
+            "request": "launch",
+            "mainClass": "java.code.godobject.shoppingcart.ShoppingCartMain",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "UtilityMain",
+            "request": "launch",
+            "mainClass": "java.code.godobject.utility.UtilityMain",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "DocumentViewer",
+            "request": "launch",
+            "mainClass": "java.code.goldenhammer.oopoveruse.DocumentViewer",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "ECommerceApplication",
+            "request": "launch",
+            "mainClass": "java.code.goldenhammer.product.ECommerceApplication",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        },
+        {
+            "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "java.code.goldenhammer.singleton.Application",
+            "projectName": "OOAD-GradProject-AntiPatterns_9dabdde7"
+        }
+    ]
+}

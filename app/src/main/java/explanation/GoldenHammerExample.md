@@ -172,7 +172,7 @@ Consider a scenario where a deep inheritance hierarchy is used for different typ
 public class Document {}
 public class TextDocument extends Document {}
 public class SpreadsheetDocument extends Document {}
-public class PdfDocument extends Document {}
+public class PDFDocument extends Document {}
 ```
 
 **Problem**: This approach can lead to a rigid class hierarchy, making it difficult to adapt to changes or add new document types without modifying existing code.
@@ -193,7 +193,7 @@ public class TextDocument implements Document {
     }
 }
 
-public class PdfDocument implements Document {
+public class PDFDocument implements Document {
     @Override
     public void open() {
         System.out.println("Opening PDF document");

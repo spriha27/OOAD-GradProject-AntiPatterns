@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": [
+        "code/cargocultprogramming",
+        "code/CargoCultProgrammingExample",
+        "code",
+        "app/src/main"
+    ]
+}
