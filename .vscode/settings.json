@@ -4,5 +4,7 @@
         "code/CargoCultProgrammingExample",
         "code",
         "app/src/main"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "disabled",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }

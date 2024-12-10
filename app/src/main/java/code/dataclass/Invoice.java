@@ -1,4 +1,4 @@
-package java.code.dataclass;
+package code.dataclass;
 
 public class Invoice {
     private double amount;

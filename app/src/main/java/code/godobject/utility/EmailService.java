@@ -1,4 +1,4 @@
-package java.code.godobject.utility;
+package code.godobject.utility;
 
 public class EmailService {
     public void sendEmail() {

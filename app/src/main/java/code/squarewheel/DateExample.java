@@ -1,4 +1,4 @@
-package java.code.squarewheel;
+package code.squarewheel;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

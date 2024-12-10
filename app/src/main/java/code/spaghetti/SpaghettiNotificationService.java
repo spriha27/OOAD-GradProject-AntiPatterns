@@ -1,6 +1,6 @@
-package java.code.spaghetti;
+package code.spaghetti;
 
-public class NotificationService {
+public class SpaghettiNotificationService {
     public void sendNotification(String message) {
         System.out.println("Notification: " + message);
     }

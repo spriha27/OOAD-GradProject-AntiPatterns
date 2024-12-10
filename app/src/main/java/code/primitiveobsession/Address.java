@@ -1,4 +1,4 @@
-package java.code.primitiveobsession;
+package code.primitiveobsession;
 
 public class Address {
     private Street street;

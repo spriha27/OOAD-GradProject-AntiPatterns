@@ -1,4 +1,4 @@
-package java.code.primitiveobsession.productmoney;
+package code.primitiveobsession.productmoney;
 
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package java.code.goldenhammer;
+package code.goldenhammer;
 
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;

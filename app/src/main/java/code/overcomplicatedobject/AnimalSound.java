@@ -1,4 +1,4 @@
-package java.code.overcomplicatedobject;
+package code.overcomplicatedobject;
 
 public class AnimalSound {
     private Sound sound;

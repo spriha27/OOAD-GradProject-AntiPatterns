@@ -1,4 +1,4 @@
-package java.code.godobject.datamanager;
+package code.godobject.datamanager;
 
 public class DataManagerMain {
     public static void main(String[] args) {

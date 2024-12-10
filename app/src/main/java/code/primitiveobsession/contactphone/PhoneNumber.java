@@ -1,4 +1,4 @@
-package java.code.primitiveobsession.contactphone;
+package code.primitiveobsession.contactphone;
 
 public class PhoneNumber {
     private String value;

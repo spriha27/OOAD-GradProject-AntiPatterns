@@ -1,4 +1,4 @@
-package java.code.squarewheel;
+package code.squarewheel;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

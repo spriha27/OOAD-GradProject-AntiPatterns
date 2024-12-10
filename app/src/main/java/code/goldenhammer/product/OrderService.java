@@ -1,4 +1,4 @@
-package java.code.goldenhammer.product;
+package code.goldenhammer.product;
 
 public class OrderService {
     public void placeOrder(String productId) {

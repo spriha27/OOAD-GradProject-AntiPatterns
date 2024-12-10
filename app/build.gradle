@@ -1,36 +1,30 @@
 plugins {
     id 'application'
     id 'org.springframework.boot' version '3.0.6'
-
 }
 
 repositories {
     mavenCentral()
     mavenLocal() // For local Maven repository, if needed
+    jcenter() // Deprecated but included for completeness
     maven { url 'https://repo1.maven.org/maven2/' }
 }
 
 dependencies {
+    // Testing dependencies
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
+    // Application dependencies
     implementation 'javax.websocket:javax.websocket-api:1.1'
     implementation 'com.google.guava:guava:32.1.2-jre'
     implementation 'org.springframework.boot:spring-boot-starter-security:3.0.6'
-    // implementation 'org.glassfish.tyrus:tyrus-standalone-server:2.1.1'
     implementation 'org.glassfish.tyrus:tyrus-server:2.0.1'
-    implementation 'com.example:library:1.0'
-
     implementation 'org.slf4j:slf4j-api:2.0.9' // SLF4J API
-    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    implementation 'ch.qos.logback:logback-classic:1.4.11' // Logback for logging
 
+    // Local JAR file (adjust the path if necessary)
     implementation files('libs/library-1.0.jar')
-
-}
-
-repositories {
-    mavenCentral()
-    jcenter()
 }
 
 java {
@@ -40,10 +34,6 @@ java {
     }
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
-
-dependencies {
-    implementation 'com.example:library:1.0'
+application {
+    mainClass = 'code.Main'
 }

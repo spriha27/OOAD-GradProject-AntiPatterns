@@ -1,4 +1,4 @@
-package java.code.spaghetti;
+package code.spaghetti;
 
 enum CustomerType {
     REGULAR, VIP

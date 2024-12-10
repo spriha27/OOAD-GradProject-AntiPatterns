@@ -1,4 +1,4 @@
-package java.code.godobject.shoppingcart;
+package code.godobject.shoppingcart;
 
 public class PriceCalculator {
     public void calculateTotal() {

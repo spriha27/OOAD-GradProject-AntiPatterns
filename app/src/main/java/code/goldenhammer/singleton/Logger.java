@@ -1,4 +1,4 @@
-package java.code.goldenhammer.singleton;
+package code.goldenhammer.singleton;
 
 public class Logger {
     public void log(String message) {

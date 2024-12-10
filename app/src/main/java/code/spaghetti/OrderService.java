@@ -1,4 +1,4 @@
-package java.code.spaghetti;
+package code.spaghetti;
 
 public class OrderService {
     private OrderValidator validator = new OrderValidator();

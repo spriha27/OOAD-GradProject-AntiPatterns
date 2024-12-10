@@ -1,4 +1,4 @@
-package java.code.squarewheel;
+package code.squarewheel;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package java.code.cargocultprogramming;
+package code.cargocultprogramming;
 
 public class CounterExample {
     public static void main(String[] args) {

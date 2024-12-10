@@ -1,4 +1,4 @@
-package java.code.primitiveobsession.customer;
+package code.primitiveobsession.customer;
 
 import java.util.UUID;
 

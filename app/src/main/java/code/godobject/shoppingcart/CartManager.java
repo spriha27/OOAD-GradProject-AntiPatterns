@@ -1,4 +1,4 @@
-package java.code.godobject.shoppingcart;
+package code.godobject.shoppingcart;
 
 public class CartManager {
     public void addItem() {

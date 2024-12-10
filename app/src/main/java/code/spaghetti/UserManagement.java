@@ -1,13 +1,15 @@
-package java.code.spaghetti;
+package code.spaghetti;
 
 public class UserManagement {
+    private SpaghettiNotificationService notificationService = new SpaghettiNotificationService();
+
     public static void main(String[] args) {
+        UserManagement userManagement = new UserManagement();
         UserService userService = new UserService();
-        NotificationService notificationService = new NotificationService();
         BackupService backupService = new BackupService();
 
         userService.createUser();
-        notificationService.sendNotification("Welcome!");
+        userManagement.notificationService.sendNotification("Welcome!");
         backupService.backupDatabase();
     }
 }
@@ -19,12 +21,6 @@ class UserService {
 
     public void deleteUser() {
         System.out.println("Deleting user...");
-    }
-}
-
-class NotificationService {
-    public void sendNotification(String message) {
-        System.out.println("Sending notification: " + message);
     }
 }
 

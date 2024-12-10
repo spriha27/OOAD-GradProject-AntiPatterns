@@ -1,4 +1,4 @@
-package java.code.violationofencapsulation;
+package code.violationofencapsulation;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package java.code.overcomplicatedobject;
+package code.overcomplicatedobject;
 
 import java.util.List;
 

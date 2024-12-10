@@ -1,4 +1,4 @@
-package java.code.cargocultprogramming;
+package code.cargocultprogramming;
 
 @SuppressWarnings("unused")
 public class DatabaseConnectionExample {

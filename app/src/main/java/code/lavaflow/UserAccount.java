@@ -1,4 +1,4 @@
-package java.code.lavaflow;
+package code.lavaflow;
 
 public class UserAccount {
     public void updateAccount(String accountId) {

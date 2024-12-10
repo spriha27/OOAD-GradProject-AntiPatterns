@@ -1,4 +1,4 @@
-package java.code.godobject.applicationcontroller;
+package code.godobject.applicationcontroller;
 
 public class BusinessLogicProcessor {
     public void processBusinessLogic() {

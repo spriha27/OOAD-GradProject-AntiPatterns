@@ -1,4 +1,4 @@
-package java.code.lavaflow;
+package code.lavaflow;
 
 public class PaymentHandler {
     public void handlePayment(Payment payment) {

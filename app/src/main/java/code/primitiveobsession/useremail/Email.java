@@ -1,4 +1,4 @@
-package java.code.primitiveobsession.useremail;
+package code.primitiveobsession.useremail;
 
 public class Email {
     private String value;

@@ -1,4 +1,4 @@
-package java.code.primitiveobsession.customer;
+package code.primitiveobsession.customer;
 
 public class Customer {
     private CustomerID customerId;

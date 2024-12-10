@@ -1,4 +1,4 @@
-package java.code.excessiveinheritance;
+package code.excessiveinheritance;
 
 public class BirdExample {
     public static void main(String[] args) {

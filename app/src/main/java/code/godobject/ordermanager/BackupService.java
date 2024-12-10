@@ -1,4 +1,4 @@
-package java.code.godobject.ordermanager;
+package code.godobject.ordermanager;
 
 public class BackupService {
     public void backupOrders() {

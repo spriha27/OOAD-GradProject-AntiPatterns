@@ -1,4 +1,4 @@
-package java.code.godobject.utility;
+package code.godobject.utility;
 
 public class ReportGenerator {
     public void generateReport() {

@@ -1,4 +1,4 @@
-package java.code.cargocultprogramming;
+package code.cargocultprogramming;
 
 public class NetworkConfigExample {
     public static void main(String[] args) {

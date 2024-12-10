@@ -1,4 +1,4 @@
-package java.code.goldenhammer.oopoveruse;
+package code.goldenhammer.oopoveruse;
 
 public class TextDocument implements Document {
     @Override

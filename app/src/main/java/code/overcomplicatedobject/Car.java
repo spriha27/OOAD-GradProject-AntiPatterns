@@ -1,4 +1,4 @@
-package java.code.overcomplicatedobject;
+package code.overcomplicatedobject;
 
 public class Car {
     private String type;

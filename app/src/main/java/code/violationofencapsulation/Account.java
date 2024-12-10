@@ -1,4 +1,4 @@
-package java.code.violationofencapsulation;
+package code.violationofencapsulation;
 
 public class Account {
     private double balance;

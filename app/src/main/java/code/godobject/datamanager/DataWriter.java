@@ -1,4 +1,4 @@
-package java.code.godobject.datamanager;
+package code.godobject.datamanager;
 
 public class DataWriter {
     public void writeData() {

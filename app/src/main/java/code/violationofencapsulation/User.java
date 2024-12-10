@@ -1,4 +1,4 @@
-package java.code.violationofencapsulation;
+package code.violationofencapsulation;
 
 public class User {
     private String name;

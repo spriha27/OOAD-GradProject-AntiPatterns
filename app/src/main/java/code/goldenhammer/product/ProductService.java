@@ -1,4 +1,4 @@
-package java.code.goldenhammer.product;
+package code.goldenhammer.product;
 
 public class ProductService {
     public void listProducts() {

@@ -1,4 +1,4 @@
-package java.code.goldenhammer.singleton;
+package code.goldenhammer.singleton;
 
 public class Application {
     private Logger logger;

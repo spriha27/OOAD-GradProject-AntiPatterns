@@ -1,6 +1,6 @@
-package java.code.godobject.ordermanager;
+package code.godobject.ordermanager;
 
-public class NotificationService {
+public class OrderNotificationService {
     public void sendOrderNotification() {
         System.out.println("Order notification sent.");
     }
